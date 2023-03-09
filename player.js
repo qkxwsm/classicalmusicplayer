@@ -3,20 +3,20 @@ function getRandom(k)
     return Math.floor(Math.random() * k);
 }
 
-var taken = new Set();
-var autoPlay = false;
-var cid = -1, cv = "";
-var queue = [], queueIndex = 0;
+let taken = new Set();
+let autoPlay = false;
+let cid = -1, cv = "";
+let queue = [], queueIndex = 0;
 
-var listener = function (e) {
+let listener = function (e) {
     playNext();
 };
 function playMusic(piece)
 {
     taken.add(piece);
     console.log(getHash(piece));
-    var audio = document.getElementById('audio');
-    var loc = getFile(piece);
+    let audio = document.getElementById('audio');
+    let loc = getFile(piece);
     audio.setAttribute('src', loc);
     document.getElementById('current').textContent = getTitle(piece);
     audio.play();
@@ -97,8 +97,8 @@ function check(id, pid, val)
     }
     if (id == 3)
     {
-        var high = val % 100;
-        var low = (val - high) / 100 + 1;
+        let high = val % 100;
+        let low = (val - high) / 100 + 1;
         return (low <= pieces[pid][3] && pieces[pid][3] <= high);
     }
     if (id == 4)
@@ -120,7 +120,7 @@ function check(id, pid, val)
 }
 function gen()
 {
-    var pid;
+    let pid;
     if (cid == 0)
     {
         pid = 0;
@@ -135,15 +135,15 @@ function gen()
     }
     else if (cid == 2)
     {
-        var cnt = 0, oks = [];
+        let cnt = 0, oks = [];
         for (pid = 0; pid < pieces.length; pid++)
         {
             if (taken.has(pid))
             {
                 continue;
             }
-            var ok = true;
-            for (var id = 0; id < cv.length; id++)
+            let ok = true;
+            for (let id = 0; id < cv.length; id++)
             {
                 if (!check(id + 2, pid, cv[id]))
                 {
@@ -171,7 +171,7 @@ function gen()
     else if (cid == 3)
     {
         pid = playlists[cv][getRandom(playlists[cv].length)] - 1;
-        var cnt = 0;
+        let cnt = 0;
         while(taken.has(pid))
         {
             pid = playlists[cv][getRandom(playlists[cv].length)] - 1;
@@ -186,7 +186,7 @@ function gen()
     else
     {
         pid = getRandom(pieces.length);
-        var cnt = 0;
+        let cnt = 0;
         while(taken.has(pid))
         {
             pid = getRandom(pieces.length);
@@ -227,7 +227,7 @@ function workAdvanced()
 }
 function play()
 {
-    var piece = gen();
+    let piece = gen();
     queue.push(piece);
     playMusic(piece);
     queueIndex = queue.length;

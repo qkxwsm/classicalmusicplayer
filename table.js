@@ -11,11 +11,9 @@ for (let i = 0; i < pieces.length; i++)
     key.innerHTML = pieces[i][1];
     let composer = row.insertCell(3);
     composer.innerHTML = pieces[i][2];
-    let era = row.insertCell(4);
-    era.innerHTML = pieces[i][5];
-    let len = row.insertCell(5);
+    let len = row.insertCell(4);
     len.innerHTML = (pieces[i][3] < 10 ? "0" : "") + pieces[i][3] + " min";
-    let rating = row.insertCell(6);
+    let rating = row.insertCell(5);
     rating.innerHTML = "#" + pieces[i][4];
 }
 

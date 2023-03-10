@@ -35,6 +35,16 @@ function updNext()
 }
 function enqueue()
 {
+    let nextSong = gen();
+    if (nextSong == queue[queue.length - 1])
+    {
+        if (autoPlay)
+        {
+            clearQueue();
+            toggle();
+        }
+        return;
+    }
     queue.push(gen());
     updNext();
 }

@@ -23,8 +23,10 @@ function playMusic(piece)
 }
 function updNext()
 {
+    console.log("Index", queueIndex, "length", queue.length);
     if (queueIndex != queue.length)
     {
+        console.log("but somehow we go here");
         nxt = queue[queueIndex];
         document.getElementById('next').innerHTML = getTitle(nxt); 
     } 
@@ -49,17 +51,27 @@ function enqueue()
     updNext();
 }
 function playNext()
-{
-    playMusic(queue[queueIndex]);
-    queueIndex++;
-    if (queueIndex == queue.length)
-    {
-        enqueue();
-    }
-    else
-    {
-        updNext();
-    }
+{   
+    // if (autoPlay)
+    // {
+        playMusic(queue[queueIndex]);
+        queueIndex++;
+        if (queueIndex == queue.length && autoPlay)
+        {
+            enqueue();
+        }
+        else
+        {
+            updNext();
+        }
+    // }
+    // else
+    // {
+    //     console.log("reached");
+    //     let audio = document.getElementById('audio');
+    //     audio.removeAttribute('src');
+    //     updNext();
+    // }
 }
 function toggle()
 {

@@ -75,7 +75,7 @@
         Next in Queue: <label id="next">undefined</label>
     </div>
     <div>
-        Autoplay: <label id="autoplay"> Off </label> <button id="toggle" onclick="toggle()">Toggle</button> <button id="clearQueue" onclick="clearQueue()">Clear Queue</button>
+        Autoplay: <label id="autoplay"> Off </label> <button id="toggle" onclick="toggle()">Toggle</button> <button id="clearQueue" onclick="clearQueue()">Clear Queue</button> <button id="clearQueue" onclick="playNext()">Skip</button>
     </div>
     <br>
     <div>
@@ -122,7 +122,7 @@
             <option value=minor>minor</option>
         </select>
         Length: <input type="number" id="low" value=0 style="width:100px;"> </input> - <input type="number" id="high"
-            value=31 style="width:100px;"> minutes </input>
+            value=42 style="width:100px;"> minutes </input>
     </div>
     <div>
         Tier: at most <select id="tier" style="width:90px">

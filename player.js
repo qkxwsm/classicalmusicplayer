@@ -27,7 +27,7 @@ function updNext()
     {
         nxt = queue[queueIndex];
         document.getElementById('next').innerHTML = getTitle(nxt); 
-    }
+    } 
     else
     {
         document.getElementById('next').innerHTML = "undefined"; 
@@ -40,12 +40,12 @@ function enqueue()
     {
         if (autoPlay)
         {
-            clearQueue();
             toggle();
+            updNext();
         }
         return;
     }
-    queue.push(gen());
+    queue.push(nextSong);
     updNext();
 }
 function playNext()

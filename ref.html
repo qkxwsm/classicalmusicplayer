@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    body 
+    {
+        transform: scale(1);
+        margin-left: 20px;
+        font-family: georgia;
+    }
+    h1 
+    {
+        font-size: 30px;
+    }
+    div 
+    {
+        font-size: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    table, th, td 
+    {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    th, td 
+    {
+        padding: 5px;
+        text-align: left;
+    }
+    th 
+    {
+        cursor: pointer;
+    }
+</style>
+
+<head>
+    <title>Piece List</title>
+</head>
+
+<body>
+    <header>
+        <h1 style="font-size:40px;">Piece List</h1>
+    </header>
+    <a href="index.html">Go to Music Player</a> &nbsp; &nbsp;
+    <a href="albums.html">Go to Album List</a>
+    <br>
+    <p id="list">
+    <table class="sortable" id="songs">
+        <tr>
+            <th>ID</th>
+            <th>Piece</th>
+            <th>Key</th>
+            <th>Composer</th>
+            <th>Length</th>
+            <th>Tier</th>
+        </tr>
+    </table>
+    </p>
+    <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="ref.js"></script>
+    <script type="text/javascript" src="sorttable.js"></script>
+</body>
+
+<html>

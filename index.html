@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    body 
+    {
+        transform: scale(1);
+        margin-left: 20px;
+        font-family: georgia;
+    }
+    input 
+    {
+        box-sizing: border-box
+    }
+    h1 
+    {
+        font-size: 30px;
+    }
+    div 
+    {
+        font-size: 20px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+    }
+    select 
+    {
+        text-align: center;
+        font-size: 20px;
+        width: 200px;
+        height: 40px;
+    }
+    button 
+    {
+        text-align: center;
+        font-size: 20px;
+        width: 200px;
+        height: 40px;
+    }
+    input 
+    {
+        font-size: 20px;
+        width: 60px;
+        height: 40px;
+    }
+    input[type=radio] 
+    {
+        border: 0px;
+        height: 1em;
+        width: 5%;
+        margin-left: -10px;
+        margin-right: -10px;
+        transform: scale(1);
+    }
+    audio 
+    {
+        width: 800px;
+        height: 50px;
+    }
+</style>
+
+<head>
+    <title>Music Player</title>
+</head>
+
+<body>
+    <header>
+        <h1 style="font-size:40px;">Music Player</h1>
+    </header>
+    <a href="ref.html">Go to Piece List</a> &nbsp; &nbsp;
+    <a href="albums.html">Go to Album List</a>
+    <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="player.js"></script>
+    <br>
+    <br>
+    <div>
+        Currently Playing: <label id="current">undefined</label>
+    </div>
+    <div>
+        <audio id="audio" controls="controls" playsinline>
+            <source src="" id="audioSource" type="audio/mp4">></source>
+            Your browser does not support the audio format.
+        </audio>
+    </div>
+    <div>
+        Next in Queue: <label id="next">undefined</label>
+    </div>
+    <div>
+        Autoplay: <label id="autoplay"> Off </label> <button id="toggle" onclick="toggle()">Toggle</button> <button id="clearQueue" onclick="clearQueue()">Clear Queue</button> <button id="clearQueue" onclick="playNext()">Next</button>
+    </div>
+    <br>
+    <div>
+        <b> Simple Player </b>
+    </div>
+    <div>
+        Enter piece ID:
+        <input type="number" id="ids" value=0 style="width:200px;">
+        </input>
+        <button onclick="playBy('id', true)">Play</button>
+        <button onclick="playBy('name', false)">Add to Queue</button>
+    </div>
+    <div>
+        Choose piece:
+        <select id="names">
+            <option value="random"> Random </option>
+        </select>
+        <button onclick="playBy('name', true)">Play</button>
+        <button onclick="playBy('name', false)">Add to Queue</button>
+    </div>
+    <div>
+        Choose album:
+        <select id="albums">
+            <option value="random"> Random </option>
+        </select>
+        <button onclick="playAlbum()">Play</button>
+        <input type="radio" name="order" id="ordered" checked> From Start
+        <input type="radio" name="order" id="random"> Random Order
+    </div>
+    <br>
+    <div>
+        <b> Advanced Player </b>
+    </div>
+    <div>
+        <button onclick="playBy('advanced', true)">Play</button> <button onclick="enqueueAdvanced()">Add to Queue</button>
+    </div>
+    <div>
+        Composer: <select id="composer">
+            <option value=""> any </option>
+        </select>
+        Era: <select id="era">
+            <option value=""> any </option>
+            <option value="Baroque"> Baroque </option>
+            <option value="Classical"> Classical </option>
+            <option value="Romantic"> Romantic </option>
+            <option value="Contemporary"> Contemporary </option>
+        </select>
+    </div>
+    <div>
+        Key: <select id="key" style="width:160px">
+            <option value=""> any </option>
+            <option value=Major>Major</option>
+            <option value=minor>minor</option>
+        </select>
+        Length: <input type="number" id="low" value=0 style="width:100px;"> </input> - <input type="number" id="high"
+            value=42 style="width:100px;"> minutes </input>
+    </div>
+    <div>
+        Tier: at most <select id="tier" style="width:90px">
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+            <option value=5 selected>5</option>
+        </select>
+        In playlist: <select id="playlist">
+            <option selected value> -- select an option -- </option>
+            <option value="dark"> Dark </option>
+            <option value="sad"> Sad </option>
+            <option value="uplifting"> Uplifting </option>
+            <option value="tender"> Tender </option>
+            <option value="sleepy"> Sleepy </option>
+            <option value="impressions"> Impressions </option>
+            <option value="legendary"> Legendary </option>
+            <option value="experimental"> Experimental </option>
+            <option value="stamina"> Stamina </option>
+            <option value="troll"> Troll </option>
+            <option value="zen"> Zen </option>
+        </select>
+    </div>
+    <script type="text/javascript" src="selector.js"></script>
+    <br>
+    <footer style="font-size:8px;"> Please let me (David Hu; <a href="davidhu598@gmail.com"> davidhu598@gmail.com</a>)
+        know if you find any errors. </footer>
+</body>
+
+</html>
